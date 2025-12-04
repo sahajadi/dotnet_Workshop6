@@ -48,10 +48,15 @@ namespace workshop6
 
 
 
-            // ---------- TASK 4 ----------
-          
-            Console.WriteLine("\n--- Task 4: LINQ Basics ---");
-            Task4.Run();    
+            //// ---------- TASK 4 ----------
+
+            //Console.WriteLine("\n--- Task 4: LINQ Basics ---");
+            //Task4.Run();    
+
+
+            // ---------- TASK 5 ----------
+            Console.WriteLine("\n--- Task 5: LINQ Continued ---");
+            Task5.Run();
 
 
         }
