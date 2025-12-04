@@ -20,28 +20,32 @@
 
 
 
-            // TAsk 2 part 1
-            Calculate calc;
+            //// TAsk 2 
+            //Calculate calc;
 
-            calc = MathOps.Add;
-            Console.WriteLine($"Add: {calc(20, 10)}"); // 15
+            //calc = MathOps.Add;
+            //Console.WriteLine($"Add: {calc(20, 10)}"); // 15
 
-            calc = MathOps.Subtract;
-            Console.WriteLine($"Subtract: {calc(20, 10)}"); // 5
+            //calc = MathOps.Subtract;
+            //Console.WriteLine($"Subtract: {calc(20, 10)}"); // 5
 
 
 
-            // ---------- TASK 2 PART 2 ----------
-            DiscountStrategy discount;
 
-            discount = DiscountService.FestivalDiscount;
-            Console.WriteLine($"Festival Discount on 1000: {discount(1000)}");
+            // ---------- TASK 2.1, 2.2, 2.3 ----------
+            Console.WriteLine("\n--- Task 2: Custom Delegate Extended ---");
 
-            discount = DiscountService.SeasonalDiscount;
-            Console.WriteLine($"Seasonal Discount on 1000: {discount(1000)}");
+            double price = 1000;
 
-            discount = DiscountService.NoDiscount;
-            Console.WriteLine($"No Discount on 1000: {discount(1000)}");
+            // Using existing discount methods
+            Console.WriteLine($"Festival Final Price: {DiscountService.CalculateFinalPrice(price, DiscountService.FestivalDiscount)}");
+            Console.WriteLine($"Seasonal Final Price: {DiscountService.CalculateFinalPrice(price, DiscountService.SeasonalDiscount)}");
+            Console.WriteLine($"No Discount Final Price: {DiscountService.CalculateFinalPrice(price, DiscountService.NoDiscount)}");
+
+            // Lambda expression for 30% discount (Task 2.3)
+            Console.WriteLine($"30% Discount Final Price: {DiscountService.CalculateFinalPrice(price, p => p * 0.70)}");
+
+
         }
     }
 
