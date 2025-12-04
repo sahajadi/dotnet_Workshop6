@@ -6,7 +6,7 @@ namespace workshop6
     {
         static void Main(string[] args)
         {
-            // ---------- TASK 1 ----------
+            //    // ---------- TASK 1 ----------
             //Rectangle rect = new Rectangle
             //{
             //    Length = 20,
@@ -54,12 +54,49 @@ namespace workshop6
             //Task4.Run();    
 
 
-            // ---------- TASK 5 ----------
-            Console.WriteLine("\n--- Task 5: LINQ Continued ---");
-            Task5.Run();
+            //// ---------- TASK 5 ----------
+            //Console.WriteLine("\n--- Task 5: LINQ Continued ---");
+            //Task5.Run();
+
+            // ---------- TASK 6 ----------
+            Console.WriteLine("\n--- Task 6: LINQ Continued ---");
+
+            // Sample data
+            List<Booking> bookings = new List<Booking>()
+            {
+                new Booking { CustomerName = "Ram", Destination = "Pokhara", Price = 8000, DurationInDay = 3, IsInternational = false },
+                new Booking { CustomerName = "Sita", Destination = "Thailand", Price = 25000, DurationInDay = 5, IsInternational = true },
+                new Booking { CustomerName = "Hari", Destination = "Chitwan", Price = 12000, DurationInDay = 6, IsInternational = false },
+                new Booking { CustomerName = "Gita", Destination = "Dubai", Price = 30000, DurationInDay = 7, IsInternational = true }
+            };
+
+            // LINQ Query
+            var report = bookings
+                .Where(b => b.Price > 10000 && b.DurationInDay > 4)
+                .Select(b => new
+                {
+                    b.CustomerName,
+                    b.Destination,
+                    Category = b.IsInternational ? "International" : "Domestic",
+                    b.Price
+                })
+                .OrderBy(b => b.Category == "International")  // Domestic first
+                .ThenBy(b => b.Price)
+                .ToList();
+
+            // Display Result
+            foreach (var item in report)
+            {
+                Console.WriteLine($"Customer: {item.CustomerName}");
+                Console.WriteLine($"Destination: {item.Destination}");
+                Console.WriteLine($"Category: {item.Category}");
+                Console.WriteLine($"Price: Rs. {item.Price}");
+                Console.WriteLine("-----------------------------");
+            }
 
 
         }
+
 
     }
 }
