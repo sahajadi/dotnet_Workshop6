@@ -32,21 +32,26 @@ namespace workshop6
             //Console.WriteLine($"30% Discount Final Price: {DiscountService.CalculateFinalPrice(price, p => p * 0.70)}");
 
 
-            //Task 3
+            ////Task 3
 
-            Console.WriteLine("\n--- Task 3: Built-in Delegate ---");
+            //Console.WriteLine("\n--- Task 3: Built-in Delegate ---");
 
-            int[] nums = { 2, 5, 12, 7, 18, 3, 22 };
+            //int[] nums = { 2, 5, 12, 7, 18, 3, 22 };
 
-            // Only even numbers
-            Console.WriteLine("Even Numbers:");
-            NumberProcessor.ProcessNumbers(nums, n => n % 2 == 0);
+            //// Only even numbers
+            //Console.WriteLine("Even Numbers:");
+            //NumberProcessor.ProcessNumbers(nums, n => n % 2 == 0);
 
-            // Only numbers greater than 10
-            Console.WriteLine("\nNumbers > 10:");
-            NumberProcessor.ProcessNumbers(nums, n => n > 10);
+            //// Only numbers greater than 10
+            //Console.WriteLine("\nNumbers > 10:");
+            //NumberProcessor.ProcessNumbers(nums, n => n > 10);
 
 
+
+            // ---------- TASK 4 ----------
+          
+            Console.WriteLine("\n--- Task 4: LINQ Basics ---");
+            Task4.Run();    
 
 
         }
